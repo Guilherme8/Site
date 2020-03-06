@@ -32,7 +32,7 @@ class PedidoRegistro(models.Model):
     id = models.IntegerField(primary_key=True)
     dataPedido = models.DateField(null=False)
     valorTotal = models.FloatField(null=False)
-    usuario = models.ForeignKey(Usuario)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     produto = models.ManyToManyField(Produto)
 
     def __str__(self):
