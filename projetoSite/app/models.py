@@ -19,11 +19,16 @@ class Usuario(models.Model):
         return self.nome
 
 class Produto(models.Model):
+    TIPO_CHOICES = (
+        ("anel", "Anel"),
+        ("colar", "Colar"),
+    )
     id = models.IntegerField(primary_key=True)
     nome = models.CharField(max_length=50, null=False)
-    quantidade = models.IntegerField(max_length=100)
+    quantidade = models.IntegerField(null=False)
     valor = models.FloatField(null=False)
     foto_capa = models.ImageField(upload_to='images')
+    tipo = models.CharField(max_length=10, choices=TIPO_CHOICES)
 
     def __str__(self):
         return self.nome

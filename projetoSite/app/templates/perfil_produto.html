@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block title %}
+Perfil do Produto
+{% endblock title %}
+{% block content %}
+<div class="row">
+   <div class="col-md-4">
+     <div class="thumbnail">
+         <img src="{{Produto.foto_capa.url}}" style="width:100%">
+         <div class="caption">
+         </div>
+     </div>
+   </div>
+     <div class="col-md-8">
+         <ul class="list-group">
+           <li class="list-group-item"> Nome: {{Produto.nome}}</li>
+           <li class="list-group-item"> Quantidade: {{Produto.quantidade}}</li>
+           <li class="list-group-item"> Valor: {{Produto.valor|intcomma}}</li>
+           <li class="list-group-item"> Tipo: {{Produto.tipo}}</li>
+         </ul>
+     </div>
+ </div>
+{% endblock content %}
